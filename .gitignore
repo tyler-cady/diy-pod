@@ -1,0 +1,19 @@
+# Build Artifacts
+/build/
+*.o
+*.bin
+*.elf
+*.hex
+*.map
+*.lst
+
+# Compiled Libraries
+/libs/
+
+# Configuration Files
+/configs/api_keys.h
+
+# IDE Files
+*.vscode/
+*.log
+*.swp
