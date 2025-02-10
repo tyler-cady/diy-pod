@@ -9,7 +9,7 @@
 
 # Compiled Libraries
 /libs/
-
+/mp3/
 # Configuration Files
 /configs/api_keys.h
 

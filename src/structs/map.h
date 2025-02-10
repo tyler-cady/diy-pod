@@ -4,7 +4,7 @@
 #include <string.h>
 #include <assert.h>
 #include "tag.h"
-
+#include "hash.h"
 /* Forward Declarations */
 typedef struct OuterMap OuterMap;
 typedef struct OuterEntry OuterEntry;
@@ -55,5 +55,3 @@ InnerMap *create_InnerMap(int size);
 void deleteOuterMap(OuterMap *map);
 void deleteInnerMap(InnerMap *map);
 
-/* Hash Function */
-int hash_pjw(const char *key);

@@ -6,9 +6,11 @@
 #include <dirent.h> 
 #include <sys/stat.h>
 
-#include "map.h"
-#include "tag.h"
+#include "structs/map.h"
+#include "structs/tag.h"
 
+
+#define PATH_MAX 4096
 
 int is_mp3(const char *filename);
 void read_dir_mp3(OuterMap *outerMap, const char *path);

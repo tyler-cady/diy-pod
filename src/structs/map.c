@@ -103,24 +103,7 @@ void deleteInnerMap(InnerMap *map)
     free(map);
 }
 
-/* Hash Function */
-int hash_pjw(const char *key)
-{
-    const char *ptr = key;
-    unsigned int val = 0;
-    while (*ptr != '\0')
-    {
-        unsigned int tmp;
-        val = (val << 4) + (*ptr);
-        if ((tmp = (val & 0xf0000000)))
-        {
-            val = val ^ (tmp >> 24);
-            val = val ^ tmp;
-        }
-        ptr++;
-    }
-    return val;
-}
+
 
 void list_albums(OuterMap *map)
 {
@@ -137,15 +120,15 @@ void list_albums(OuterMap *map)
     
 }
 
-int main()
-{
-    OuterMap *map = create_OuterMap(10);
-    InnerMap *innerMap = create_InnerMap(10);
-    Tag *tag = malloc(sizeof(Tag));
+// int main()
+// {
+//     OuterMap *map = create_OuterMap(10);
+//     InnerMap *innerMap = create_InnerMap(10);
+//     Tag *tag = malloc(sizeof(Tag));
 
-    innerInsert(innerMap, "key", tag);
-    outerInsert(map, "meta_type", innerMap);
-    list_albums(map);
-    deleteOuterMap(map);
-    return 0;
-}
+//     innerInsert(innerMap, "key", tag);
+//     outerInsert(map, "meta_type", innerMap);
+//     list_albums(map);
+//     deleteOuterMap(map);
+//     return 0;
+// }

@@ -185,27 +185,27 @@ Tag *read_id3v2(const char *filename)
 
 
 
-int main(int argc, char *argv[])
-{
-    if (argc < 2)
-    {
-        fprintf(stderr, "Usage: %s <mp3 file>\n", argv[0]);
-        return 1;
-    }
+// int main(int argc, char *argv[])
+// {
+//     if (argc < 2)
+//     {
+//         fprintf(stderr, "Usage: %s <mp3 file>\n", argv[0]);
+//         return 1;
+//     }
 
-    Tag *tag = read_id3v2(argv[1]);
-    if (tag)
-    {
-        printf("\nFile: %s\n", tag->filename);
-        printf("Title: %s\n", tag->title ? tag->title : "N/A");
-        printf("Artist: %s\n", tag->artist ? tag->artist : "N/A");
-        printf("Album: %s\n", tag->album ? tag->album : "N/A");
-        printf("Track: %s\n", tag->track_num ? tag->track_num : "N/A");
-        printf("Year: %s\n", tag->year ? tag->year : "N/A");
-        printf("Genre: %s\n", tag->genre ? tag->genre : "N/A");
+//     Tag *tag = read_id3v2(argv[1]);
+//     if (tag)
+//     {
+//         printf("\nFile: %s\n", tag->filename);
+//         printf("Title: %s\n", tag->title ? tag->title : "N/A");
+//         printf("Artist: %s\n", tag->artist ? tag->artist : "N/A");
+//         printf("Album: %s\n", tag->album ? tag->album : "N/A");
+//         printf("Track: %s\n", tag->track_num ? tag->track_num : "N/A");
+//         printf("Year: %s\n", tag->year ? tag->year : "N/A");
+//         printf("Genre: %s\n", tag->genre ? tag->genre : "N/A");
 
-        delete_tag(tag);
-    }
+//         delete_tag(tag);
+//     }
 
-    return 0;
-}
+//     return 0;
+// }
