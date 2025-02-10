@@ -1,19 +1,9 @@
 #pragma once
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
-
-typedef struct Tag
-{
-    char title,
-         artist,
-         album,
-         track_num,
-         year,
-         genre;
-} Tag;
+#include "tag.h"
 
 /* Forward Declarations */
 typedef struct OuterMap OuterMap;
@@ -30,8 +20,8 @@ typedef struct OuterMap
 
 typedef struct OuterEntry
 {
-    char *meta_type;         /* album, artist, title, genre, year */
-    InnerMap *innerMap; 
+    char *meta_type; /* album, artist, title, genre, year */
+    InnerMap *innerMap;
     struct OuterEntry *next;
 } OuterEntry;
 
@@ -40,13 +30,13 @@ OuterMap *create_OuterMap(int size);
 /* Inner Map */
 typedef struct InnerMap
 {
-   int size;
-   InnerEntry **bucket;
+    int size;
+    InnerEntry **bucket;
 } InnerMap;
 
 typedef struct InnerEntry
 {
-    char *key;   /* Changed from char to char* */
+    char *key; /* Changed from char to char* */
     Tag *tag;
     struct InnerEntry *next;
 } InnerEntry;
@@ -67,23 +57,3 @@ void deleteInnerMap(InnerMap *map);
 
 /* Hash Function */
 int hash_pjw(const char *key);
-
-
-/* Ipod functions */
-
-void list_albums(OuterMap *map);
-void list_genres(OuterMap *map);
-void list_artists(OuterMap *map);
-void list_songs(OuterMap *map);
-
-
-void list_songs_from_album(OuterMap *map, const char *album);
-void list_albums_from_artist(OuterMap *map, const char *artist);
-void list_songs_from_artist(OuterMap *map, const char *artist);
-void list_albums_by_genre(OuterMap *map, const char *genre);
-
-
-/* Merge Sort Functions */
-void merge_sort(char **arr, int left, int right);
-void merge(char **arr, int left, int mid, int right);
-

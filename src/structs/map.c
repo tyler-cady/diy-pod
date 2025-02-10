@@ -1,7 +1,4 @@
-#include "metadata_storage.h"
-#include <stdlib.h>
-#include <string.h>
-#include <assert.h>
+#include "map.h"
 
 /* Insert Functions  */
 void outerInsert(OuterMap *map, const char *meta_type, InnerMap *innerMap)
@@ -127,11 +124,28 @@ int hash_pjw(const char *key)
 
 void list_albums(OuterMap *map)
 {
-    /* alphabetically sort albums by name with merge sort */
+    /* alphabetically sort albums by album name*/
+    for (int i = 0; i < map->size; i++)
+    {
+        OuterEntry *entry = map->bucket[i];
+        while (entry)
+        {
+            printf("%s\n", entry->meta_type);
+            entry = entry->next;
+        }
+    }
     
 }
 
 int main()
 {
+    OuterMap *map = create_OuterMap(10);
+    InnerMap *innerMap = create_InnerMap(10);
+    Tag *tag = malloc(sizeof(Tag));
+
+    innerInsert(innerMap, "key", tag);
+    outerInsert(map, "meta_type", innerMap);
+    list_albums(map);
+    deleteOuterMap(map);
     return 0;
 }
